@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import vencruLogo from '../assets/vencru-logo.png';
 
-const FeedbackModal = ({ onSubmit }) => (
+const FeedbackModal = ({ onSubmit, submitted }) => (
   <Fragment>
     {/* modal */}
     <div
@@ -31,16 +31,15 @@ const FeedbackModal = ({ onSubmit }) => (
                 id="closeModal"
                 data-dismiss="modal"
                 data-toggle="modal"
-                data-target="#cancelModal"
+                data-target={submitted ? null : "#cancelModal"}
               >
                 Cancel
               </button>
               <button
-                type="button"
                 onClick={onSubmit}
                 id="saveButton"
               >
-                Save
+                { submitted ? <div className="loader"></div> : 'Save'}
               </button>
             </div>
             <div className="logo">
