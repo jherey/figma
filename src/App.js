@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import toastr from "toastr";
+import SuggestionsPage from './components/SuggestionsPage';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+  onSubmit = () => {
+    const feedback = document.getElementById("modalContent").value;
+    const headers = new Headers({
+      "content-type": "application/json"
+    });
+
+    const feedbackData = {
+      emailaddress: "otutudinma1995@gmail.com",
+      details: feedback
+    };
+
+    if (feedback !== '') {
+      fetch("https://api.vencru.com/api/admin/addfeedback", {
+      method: "POST",
+      body: JSON.stringify(feedbackData),
+      headers
+    })
+      .then(res => res.json())
+      .then(data => {
+        toastr.success("Thank you for the feedback!");
+        document.getElementById("modalContent").value = '';
+        document.getElementById('closeModal').click();
+      })
+      .catch(error => toastr.error("Feedback not sent!"));
+    } else {
+      toastr.info('Please write a feedback');
+    }
+  };
+
+ render() {
+   return (
+     <SuggestionsPage onSubmit={this.onSubmit}/>
+   );
+ }
 }
 
 export default App;
