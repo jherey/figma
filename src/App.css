@@ -175,3 +175,126 @@ body {
  margin-top: 65px;
  color:  #8CA0B3;
 }
+
+/* Feedback modal */
+.modal-parent {
+  max-width: 100%;
+}
+
+#content {
+  width: 700px;
+  height: 450px;
+  margin: 80px auto;
+}
+
+#modal-body {
+  padding: 44px 86px 46px 79px;
+  position: relative;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+  color: #2D74DA;
+  margin-bottom: 25px;
+}
+
+#modalContent {
+  margin-left: 6px;
+  margin-bottom: 60px;
+  border-radius: 4px;
+  border-color: #8CA0B3;
+}
+
+#modalContent::placeholder {
+  font-size: 12px;
+  line-height: 14px;
+  color: #8CA0B3;
+  padding: 20px 227px 163px 16px;
+}
+
+.action-buttons {
+  text-align: center;
+  /* margin-bottom: 46px; */
+  margin-top: -7px;
+}
+
+#saveButton {
+  background-color: #2D74DA;
+  color: #FFFFFF;
+  width: 142px;
+  height: 41px;
+  font-size: 11.63px;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 14px;
+  Opacity: 95.62%;
+}
+
+#closeModal {
+  color: #8CA0B3;
+  opacity: 95.62%;
+  border: none;
+  cursor: pointer;
+  background: #FFFFFF;
+  line-height: 14px;
+  font-size: 11.63px;
+  margin-right: 20px;
+}
+
+.logo {
+  position: absolute;
+  top: 375px;
+  right: 10px;
+}
+
+/* Cancel modal */
+#cancelModalContent {
+  width: 576px;
+  height: 225px;
+  margin: 200px auto;
+  border-radius: 4px;
+}
+
+#cancel-modal-body {
+  
+}
+
+#cancelText {
+  padding: 58px 116px 43px 123px;
+  font-size: 24px;
+  line-height: 29px;
+  color: #31393C;
+  margin-bottom: 0px;
+}
+
+.cancel-action-buttons {
+  margin-left: 185px;
+}
+
+#yesButton {
+  width: 97px;
+  height: 41px;
+  background: #2D74DA;
+  border-radius: 3px;
+  font-size: 11.63px;
+  line-height: 14px;
+  opacity: 95.62%;
+  color: #FFFFFF;
+  margin-right: 13px;
+  cursor: pointer;
+}
+
+#noButton {
+  width: 97px;
+  height: 41px;
+  background: #F56A6A;
+  border-radius: 3px;
+  font-size: 11.63px;
+  line-height: 14px;
+  opacity: 95.62%;
+  color: #FFFFFF;
+  margin-right: 13px;
+  cursor: pointer;
+}
