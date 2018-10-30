@@ -6,10 +6,10 @@ import notificationIcon from "../assets/notification.svg";
 import avatar from "../assets/avatar.svg";
 import profileIcon from "../assets/profile-icon.svg";
 
-const Navbar = () => (
+const Navbar = ({ toggleSideNav }) => (
   <Fragment>
     <header className="nav-header">
-      <div className="nav-toggle">
+      <div className="nav-toggle" onClick={toggleSideNav}>
         <img src={menuToggleIcon} alt="toggle-menu" />
       </div>
       <div className="feedback">Feedback</div>

@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import handshakeIcon from "../assets/handshake-icon.svg";
 
-const MainContent = () => (
+const MainContent = ({ style }) => (
   <Fragment>
-    <div className="content-area">
+    <div className="content-area" style={style.contentArea}>
+        {/* <div className="content-area"> */}
         <div className="content-card">
           <p className="main-info">
             Join us in developing Vencru to better serve your growing business
@@ -21,7 +22,7 @@ const MainContent = () => (
             >
               Leave feedback
             </button>
-            <button className="btn primary-btn main-buttons">Enter ideas portal</button>
+            <button className="btn primary-btn main-buttons portal">Enter ideas portal</button>
           </div>
         </div>
       </div>

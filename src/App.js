@@ -8,6 +8,67 @@ import './App.css';
 class App extends Component {
   state = {
     submitted: false,
+    isCollapsed: false,
+    style: {}
+  }
+
+  componentDidMount() {
+    this.handleWidthChange()
+    window.addEventListener('resize', this.handleWidthChange, false);
+  }
+  
+  handleWidthChange = () => {
+    const { isCollapsed } = this.state;
+    if (window.innerWidth < 580 && !isCollapsed) {
+      return this.setState({ style: {
+        lastHack: {
+          display: 'none'
+        }
+      }})
+    }
+    return this.setState({ style: {
+      display: 'block'
+    }})
+  }
+
+  toggleSideNav = () => {
+    this.setState(prevState => ({
+      isCollapsed: !prevState.isCollapsed,
+    }), () => {
+      const { isCollapsed } = this.state;
+      this.collapseContent(isCollapsed)}
+    );
+  }
+
+  collapseContent(isCollapsed) {
+    if (isCollapsed) {
+      if (window.innerWidth < 580) {
+        return this.setState({
+          style: { 
+            display: 'block',
+            navWidth: {
+              width: '223px',
+              position: 'absolute'
+            },
+            contentArea: {
+              width: '100%'
+            }
+          }
+        })
+      }
+      return this.setState({
+        style: { 
+          display: 'none',
+          navWidth: {
+            width: '83px'
+          },
+          contentArea: {
+            width: '100%'
+          }
+        }
+      })
+    }
+    this.handleWidthChange()
   }
 
   onSubmit = () => {
@@ -47,10 +108,13 @@ class App extends Component {
 
  render() {
    const { onSubmit } = this;
-   const { submitted } = this.state;
+   const { submitted, style } = this.state;
    return (
      <Fragment>
-        <SuggestionsPage />
+        <SuggestionsPage
+          toggleSideNav={this.toggleSideNav}
+          style={style}
+        />
         <FeedbackModal onSubmit={onSubmit} submitted={submitted} />
         <CancelModal />
      </Fragment>

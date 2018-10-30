@@ -3,12 +3,12 @@ import Navbar from './Navbar';
 import SideBar from './SideBar';
 import MainContent from './MainContent';
 
-const SuggestionsPage = () => (
+const SuggestionsPage = ({ toggleSideNav, style }) => (
   <Fragment>
-    <Navbar />
+    <Navbar toggleSideNav={toggleSideNav} />
     <div className="page-area">
-      <SideBar />
-      <MainContent />
+      <SideBar style={style} />
+      <MainContent style={style} />
     </div>
   </Fragment>
 );

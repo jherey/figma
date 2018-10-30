@@ -8,41 +8,41 @@ import sendIcon from "../assets/icon-send.svg";
 import settingsIcon from "../assets/icon-settings.svg";
 import clientActiveIcon from "../assets/icon-clients-active.svg";
 
-const SideBar = () => (
+const SideBar = ({ style }) => (
   <Fragment>
-    <nav className="menu-nav">
-        <ul>
+    <nav className="menu-nav" style={style.navWidth}>
+        <ul style={style.lastHack}>
           <li>
             <img src={dashboardIcon} alt="dashboard" />
-            Dashboard
+            <span style={style}>Dashboard</span>
           </li>
           <li>
             <img src={fileIcon} alt="sales" />
-            Sales
+            <span style={style}>Sales</span>
           </li>
           <li>
             <img src={reportsIcon} alt="reports" />
-            Expenses
+            <span style={style}>Expenses</span>
           </li>
           <li>
             <img src={itemsIcon} alt="items" />
-            Items
+            <span style={style}>Items</span>
           </li>
           <li>
             <img src={clientIcon} alt="clients" />
-            Clients
+            <span style={style}>Clients</span>
           </li>
           <li>
             <img src={sendIcon} alt="campaigns" />
-            Campaigns
+            <span style={style}>Campaigns</span>
           </li>
           <li>
             <img src={settingsIcon} alt="settings" />
-            Settings
+            <span style={style}>Settings</span>
           </li>
           <li className="active">
             <img src={clientActiveIcon} alt="feedback" />
-            Feedback
+            <span style={style}>Feedback</span>
           </li>
         </ul>
       </nav>
